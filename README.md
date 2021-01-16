@@ -1,9 +1,10 @@
 # Domain-driven design example applications
 
-A few years ago, when I started learning about Domain-Driven Design trough the *blue book*/*red book* and tried to apply
-the tactical part of this new vision to my real world projects (mostly Java / Spring / Angular at the time), I quickly
-found myself puzzled by issues or limitations coming from the frameworks and tools I used. I also found out that I was
-not alone, and that many people in the craftsmanship community didn't really have satisfactory answers to them.
+A few years ago, when I started learning about Domain-Driven Design through the *blue book*/*red book* and tried to
+apply the tactical part of this new vision to my real world projects (mostly Java / Spring / Angular at the time),
+I quickly found myself puzzled by issues or limitations coming from the frameworks and tools I used. I also found out
+that I was not alone, and that many people in the craftsmanship community didn't really have satisfactory answers to
+them.
 
 This repository contains what I wish I had at the time: a few answers to common questions, and complete examples of
 working architectures with up-to-date frameworks.
