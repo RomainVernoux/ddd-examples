@@ -14,3 +14,5 @@ Particular points of interest:
   doubles for infrastructure services.
 - We chose not to unit test controllers or repository, since they mostly pass-through to framework code
 - Integration tests cover the whole backend, from the controllers to a real database instance
+- We used the [ArchUnit](https://www.archunit.org/) testing framework in `HexagonalArchitectureTest.java` to enforce the
+  constraints of the Hexagonal architecture  
