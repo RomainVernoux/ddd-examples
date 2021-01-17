@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
-public class Entity<Id> {
+public abstract class Entity<Id> {
 
     protected final Id id;
 

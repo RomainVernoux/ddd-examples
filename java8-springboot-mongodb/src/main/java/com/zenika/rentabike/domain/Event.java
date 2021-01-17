@@ -1,4 +1,4 @@
 package com.zenika.rentabike.domain;
 
-public class Event extends ValueObject {
+public abstract class Event extends ValueObject {
 }

@@ -2,7 +2,7 @@ package com.zenika.rentabike.domain;
 
 import static java.util.Objects.requireNonNull;
 
-public class ValueObjectId extends ValueObject {
+public abstract class ValueObjectId extends ValueObject {
 
     private final String value;
 
