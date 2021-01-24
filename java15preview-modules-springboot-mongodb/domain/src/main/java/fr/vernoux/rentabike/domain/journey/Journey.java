@@ -11,8 +11,8 @@ import static java.util.Objects.requireNonNull;
 
 public class Journey extends Entity<JourneyId> {
 
-    private final BikeId bikeId;
-    private final List<Position> positions;
+    private BikeId bikeId;
+    private List<Position> positions;
 
     public Journey(JourneyId journeyId, BikeId bikeId, Position startPosition) {
         super(journeyId);
@@ -21,6 +21,10 @@ public class Journey extends Entity<JourneyId> {
         this.bikeId = bikeId;
         this.positions = new ArrayList<>();
         positions.add(startPosition);
+    }
+
+    private Journey() {
+        // For hibernate
     }
 
     public void addWaypoint(Position waypoint) {

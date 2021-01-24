@@ -1,19 +1,21 @@
 package fr.vernoux.rentabike.domain.bike;
 
-import fr.vernoux.rentabike.domain.Entity;
+import fr.vernoux.rentabike.domain.DomainEntity;
 import fr.vernoux.rentabike.domain.Event;
 import fr.vernoux.rentabike.domain.standard.Position;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import java.util.List;
 
 import static fr.vernoux.rentabike.domain.bike.BikeStatus.LOCKED;
 import static fr.vernoux.rentabike.domain.bike.BikeStatus.RENTAL_IN_PROGRESS;
 import static java.util.Objects.requireNonNull;
 
-@javax.persistence.Entity
-public class Bike extends Entity<BikeId> {
+@Entity
+public class Bike extends DomainEntity<BikeId> {
 
-    @javax.persistence.Embedded
+    @Embedded
     private Position position;
     private BikeStatus status;
 

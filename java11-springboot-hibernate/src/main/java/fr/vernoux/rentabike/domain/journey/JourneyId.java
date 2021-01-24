@@ -7,4 +7,8 @@ public class JourneyId extends ValueObjectId {
     public JourneyId(String value) {
         super(value);
     }
+
+    protected JourneyId() {
+        // For hibernate
+    }
 }

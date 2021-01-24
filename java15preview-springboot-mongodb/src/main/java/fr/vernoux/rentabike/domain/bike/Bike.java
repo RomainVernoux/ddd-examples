@@ -22,6 +22,10 @@ public class Bike extends Entity<BikeId> {
         this.status = LOCKED;
     }
 
+    private Bike() {
+        // For persistence
+    }
+
     public boolean isAvailable() {
         return status == LOCKED;
     }

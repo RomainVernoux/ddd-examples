@@ -8,11 +8,15 @@ import static java.util.Objects.requireNonNull;
 
 public class Entity<Id> {
 
-    protected final Id id;
+    protected Id id;
 
     public Entity(Id id) {
         requireNonNull(id);
         this.id = id;
+    }
+
+    protected Entity() {
+        // For persistence
     }
 
     public Id getId() {

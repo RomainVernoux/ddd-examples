@@ -10,18 +10,18 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 
 @MappedSuperclass
-public class Entity<Id extends ValueObjectId> {
+public class DomainEntity<Id extends ValueObjectId> {
 
     @EmbeddedId
     @Type(type = "ValueObjectId")
     protected Id id;
 
-    public Entity(Id id) {
+    public DomainEntity(Id id) {
         requireNonNull(id);
         this.id = id;
     }
 
-    protected Entity() {
+    protected DomainEntity() {
         // For hibernate
     }
 
@@ -33,8 +33,8 @@ public class Entity<Id extends ValueObjectId> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Entity<?> entity = (Entity<?>) o;
-        return Objects.equals(id, entity.id);
+        DomainEntity<?> domainEntity = (DomainEntity<?>) o;
+        return Objects.equals(id, domainEntity.id);
     }
 
     @Override
