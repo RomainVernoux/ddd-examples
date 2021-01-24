@@ -1,4 +1,4 @@
-package com.zenika.rentabike.architecture;
+package fr.vernoux.rentabike.architecture;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
