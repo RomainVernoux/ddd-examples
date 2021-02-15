@@ -3,6 +3,7 @@ package fr.vernoux.rentabike.application;
 import fr.vernoux.rentabike.domain.bike.Bike;
 import fr.vernoux.rentabike.domain.bike.BikeRepository;
 import fr.vernoux.rentabike.domain.standard.Zone;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class BikeSearcher {
         this.bikeRepository = bikeRepository;
     }
 
+    @Transactional(readOnly = true)
     public List<Bike> getAllAvailableInZone(Zone zone) {
         requireNonNull(zone);
         return bikeRepository.findAllByStatusInZone(LOCKED, zone);

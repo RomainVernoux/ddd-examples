@@ -6,6 +6,7 @@ import fr.vernoux.rentabike.domain.journey.Journey;
 import fr.vernoux.rentabike.domain.journey.JourneyId;
 import fr.vernoux.rentabike.domain.journey.JourneyRepository;
 import fr.vernoux.rentabike.domain.standard.Position;
+import org.springframework.transaction.annotation.Transactional;
 
 import static java.util.Objects.requireNonNull;
 
@@ -19,6 +20,7 @@ public class JourneyCreator {
         this.idGenerator = idGenerator;
     }
 
+    @Transactional
     public void create(BikeId bikeId, Position startPosition) {
         requireNonNull(bikeId);
         requireNonNull(startPosition);

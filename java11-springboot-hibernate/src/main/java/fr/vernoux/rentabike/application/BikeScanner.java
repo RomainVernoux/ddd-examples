@@ -6,6 +6,7 @@ import fr.vernoux.rentabike.domain.bike.Bike;
 import fr.vernoux.rentabike.domain.bike.BikeId;
 import fr.vernoux.rentabike.domain.bike.BikeRepository;
 import fr.vernoux.rentabike.domain.bike.UnknownBikeException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class BikeScanner {
         this.eventBus = eventBus;
     }
 
+    @Transactional
     public void scan(BikeId bikeId) throws UnknownBikeException {
         requireNonNull(bikeId);
         Bike bike = bikeRepository.getById(bikeId);

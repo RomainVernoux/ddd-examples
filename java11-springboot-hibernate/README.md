@@ -10,10 +10,10 @@ Particular points of interest:
 - The `get` prefix is reserved for getters, business methods don't use them (e.g., `Journey.length()`)
 - Equality on value objects is implemented with field-by-field comparison (we use reflection in `ValueObject.java`)
 - Equality on entities is implemented by comparing ids (in the parent class `Entity.java`)
-- The use of Hibernate requires some infrastructure-related annotations and no-args constructors in the domain layer.
-  This is not ideal but still better than having a separate persistence model in the infrastructure layer and having to
-  map between domain model and persistence model! For DDD purist, look into Hibernate's XML or programmatic
-  configuration.
+- The use of JPA and Hibernate requires some infrastructure-related annotations and no-args constructors in the domain 
+  and application layers. This is not ideal but still better than having a separate persistence model in the 
+  infrastructure layer and having to map between domain model and persistence model! For DDD purist, look into 
+  Hibernate's XML or programmatic configuration.
 - We used inside-out TDD: starting with unit tests on aggregates, then moving to application service unit tests with
   doubles for infrastructure services.
 - We chose not to unit test controllers or repository, since they mostly pass-through to framework code
