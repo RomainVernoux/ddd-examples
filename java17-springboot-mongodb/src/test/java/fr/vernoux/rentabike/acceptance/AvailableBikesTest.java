@@ -85,11 +85,11 @@ class AvailableBikesTest extends MongoTest {
     }
 
     private Bike aBikeNearby() {
-        return new Bike(new BikeId(aRandomId()), closeToMe());
+        return Bike.enroll(new BikeId(aRandomId()), closeToMe());
     }
 
     private Bike aBikeFarAway() {
-        return new Bike(new BikeId(aRandomId()), farAway());
+        return Bike.enroll(new BikeId(aRandomId()), farAway());
     }
 
     private Position closeToMe() {

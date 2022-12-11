@@ -15,7 +15,7 @@ class JourneySearcherTest {
     @Test
     void findsJourneysInProgressByBikeId() {
         var bikeId = new BikeId(aRandomId());
-        var journey = new Journey(new JourneyId(aRandomId()), bikeId, aRandomPosition());
+        var journey = Journey.start(new JourneyId(aRandomId()), bikeId, aRandomPosition());
         var journeyRepository = new JourneyRepositoryDouble();
         journeyRepository.save(journey);
         var journeySearcher = new JourneySearcher(journeyRepository);

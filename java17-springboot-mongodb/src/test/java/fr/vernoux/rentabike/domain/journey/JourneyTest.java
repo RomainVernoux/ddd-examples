@@ -17,7 +17,7 @@ class JourneyTest {
         var startPosition = new Position(48.0, 2.0);
         var intermediatePosition = new Position(48.01d, 2.01d);
         var endPosition = new Position(48.02d, 2.02d);
-        var journey = new Journey(journeyId, bikeId, startPosition);
+        var journey = Journey.start(journeyId, bikeId, startPosition);
         journey.addWaypoint(intermediatePosition);
         journey.addWaypoint(endPosition);
 

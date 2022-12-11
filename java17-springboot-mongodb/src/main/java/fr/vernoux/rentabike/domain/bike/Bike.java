@@ -1,6 +1,5 @@
 package fr.vernoux.rentabike.domain.bike;
 
-import fr.vernoux.rentabike.domain.Entity;
 import fr.vernoux.rentabike.domain.Event;
 import fr.vernoux.rentabike.domain.spatial.Position;
 
@@ -11,19 +10,21 @@ import static fr.vernoux.rentabike.domain.bike.BikeStatus.RENTAL_IN_PROGRESS;
 import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
 
-public class Bike extends Entity<BikeId> {
+public class Bike {
 
+    private BikeId id;
     private Position position;
     private BikeStatus status;
 
-    public Bike(BikeId id, Position position) {
-        super(id);
-        this.position = requireNonNull(position);
-        this.status = LOCKED;
+    private Bike() {
     }
 
-    private Bike() {
-        // For persistence
+    public static Bike enroll(BikeId id, Position position) {
+        Bike bike = new Bike();
+        bike.id = requireNonNull(id);
+        bike.position = requireNonNull(position);
+        bike.status = LOCKED;
+        return bike;
     }
 
     public boolean isAvailable() {
@@ -40,17 +41,21 @@ public class Bike extends Entity<BikeId> {
 
     public List<Event> move(Position newPosition) {
         position = requireNonNull(newPosition);
-        return singletonList(new BikeMoved(getId(), newPosition));
+        return singletonList(new BikeMoved(id, newPosition));
     }
 
     private List<Event> startRental() {
         status = RENTAL_IN_PROGRESS;
-        return singletonList(new BikeRentalStarted(getId(), position));
+        return singletonList(new BikeRentalStarted(id, position));
     }
 
     private List<Event> endRental() {
         status = LOCKED;
-        return singletonList(new BikeRentalEnded(getId(), position));
+        return singletonList(new BikeRentalEnded(id, position));
+    }
+
+    public BikeId getId() {
+        return id;
     }
 
     public BikeStatus getStatus() {

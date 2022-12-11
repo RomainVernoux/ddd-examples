@@ -1,6 +1,5 @@
 package fr.vernoux.rentabike.domain.journey;
 
-import fr.vernoux.rentabike.domain.Entity;
 import fr.vernoux.rentabike.domain.bike.BikeId;
 import fr.vernoux.rentabike.domain.spatial.Position;
 
@@ -9,21 +8,22 @@ import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
-public class Journey extends Entity<JourneyId> {
+public class Journey {
 
+    private JourneyId id;
     private BikeId bikeId;
     private List<Position> positions;
 
-    public Journey(JourneyId id, BikeId bikeId, Position startPosition) {
-        super(id);
-        this.bikeId = requireNonNull(bikeId);
-        requireNonNull(startPosition);
-        this.positions = new ArrayList<>();
-        positions.add(startPosition);
+    private Journey() {
     }
 
-    private Journey() {
-        // For persistence
+    public static Journey start(JourneyId id, BikeId bikeId, Position startPosition) {
+        Journey journey = new Journey();
+        journey.id = requireNonNull(id);
+        journey.bikeId = requireNonNull(bikeId);
+        journey.positions = new ArrayList<>();
+        journey.positions.add(requireNonNull(startPosition));
+        return journey;
     }
 
     public void addWaypoint(Position waypoint) {
@@ -39,6 +39,10 @@ public class Journey extends Entity<JourneyId> {
             result += position.distanceTo(nextPosition);
         }
         return result;
+    }
+
+    public JourneyId getId() {
+        return id;
     }
 
     public BikeId getBikeId() {

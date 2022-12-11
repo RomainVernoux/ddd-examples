@@ -20,7 +20,7 @@ class BikeScannerTest {
         var eventBus = new EventBusDouble();
         var bikeScanner = new BikeScanner(bikeRepository, eventBus);
         var bikeId = new BikeId(aRandomId());
-        var bike = new Bike(bikeId, aRandomPosition());
+        var bike = Bike.enroll(bikeId, aRandomPosition());
         bikeRepository.save(bike);
 
         bikeScanner.scan(bikeId);

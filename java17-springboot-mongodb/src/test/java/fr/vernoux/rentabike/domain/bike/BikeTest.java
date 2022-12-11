@@ -12,7 +12,7 @@ class BikeTest {
     void aBikeIsAvailableByDefault() {
         var bikeId = new BikeId(aRandomId());
         var bikePosition = aRandomPosition();
-        var bike = new Bike(bikeId, bikePosition);
+        var bike = Bike.enroll(bikeId, bikePosition);
 
         assertThat(bike.isAvailable()).isTrue();
     }
@@ -80,7 +80,7 @@ class BikeTest {
     private Bike anAvailableBike() {
         var bikeId = new BikeId(aRandomId());
         var bikePosition = aRandomPosition();
-        return new Bike(bikeId, bikePosition);
+        return Bike.enroll(bikeId, bikePosition);
     }
 
     private Bike anUnavailableBike() {

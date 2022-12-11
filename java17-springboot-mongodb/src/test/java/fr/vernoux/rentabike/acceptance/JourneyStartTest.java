@@ -49,7 +49,8 @@ class JourneyStartTest extends MongoTest {
         var bikeId = aRandomId();
         var bikeLat = 48.88d;
         var bikeLng = 2.33d;
-        bikeRepository.save(new Bike(new BikeId(bikeId), new Position(bikeLat, bikeLng)));
+        var bike = Bike.enroll(new BikeId(bikeId), new Position(bikeLat, bikeLng));
+        bikeRepository.save(bike);
 
         mockMvc.perform(post("/bikes/" + bikeId + "/scan"));
 

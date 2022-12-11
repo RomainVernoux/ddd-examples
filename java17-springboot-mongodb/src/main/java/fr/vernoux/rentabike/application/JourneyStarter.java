@@ -9,12 +9,12 @@ import fr.vernoux.rentabike.domain.spatial.Position;
 
 import static java.util.Objects.requireNonNull;
 
-public class JourneyCreator {
+public class JourneyStarter {
 
     private final JourneyRepository journeyRepository;
     private final IdGenerator idGenerator;
 
-    public JourneyCreator(JourneyRepository journeyRepository, IdGenerator idGenerator) {
+    public JourneyStarter(JourneyRepository journeyRepository, IdGenerator idGenerator) {
         this.journeyRepository = journeyRepository;
         this.idGenerator = idGenerator;
     }
@@ -23,7 +23,7 @@ public class JourneyCreator {
         requireNonNull(bikeId);
         requireNonNull(startPosition);
         var journeyId = new JourneyId(idGenerator.next());
-        var journey = new Journey(journeyId, bikeId, startPosition);
+        var journey = Journey.start(journeyId, bikeId, startPosition);
         journeyRepository.save(journey);
     }
 }
