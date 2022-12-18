@@ -13,7 +13,6 @@ Particular points of interest:
   expose the business meaning of the object creation, and gives us a no-args constructor to use for reflection in the
   infrastructure layer.
 - Value objects, domain events and DTOs are implemented using records
-- Equality on entities is implemented by comparing ids (in the parent class `Entity.java`)
 - We used inside-out TDD: starting with unit tests on aggregates, then moving to application service unit tests with
   doubles for infrastructure services.
 - We chose not to unit test controllers or repository, since they mostly pass through to framework code

@@ -7,6 +7,8 @@ Particular points of interest:
 - In aggregates, we use the Value Object ID (VOID) pattern
 - There is no setter in the code, except for JPA entities in the infrastructure layer
 - Getters are used sparingly, and never in the domain or application layer!
+- Aggregates are created using factory methods named with the ubiquitous language. This gives us an opportunity to
+  expose the business meaning of the object creation.
 - Because JPA is not very DDD-friendly, we have to maintain a dedicated persistence model in the
   infrastructure layer and manually synchronize state between entities from the domain and manage entities in each
   repository. Mapping also requires public all-args constructors in the domain aggregates.
